@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Turnurile din hanoi", "Turnurile din hanoi.csproj", "{F4B0C9C6-9E11-4529-BA97-31C454D27568}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "binarysearch", "..\binarysearch\binarysearch.csproj", "{A54793A3-676D-4C29-AC56-32BE8E0B882E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4B0C9C6-9E11-4529-BA97-31C454D27568}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4B0C9C6-9E11-4529-BA97-31C454D27568}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4B0C9C6-9E11-4529-BA97-31C454D27568}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4B0C9C6-9E11-4529-BA97-31C454D27568}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A54793A3-676D-4C29-AC56-32BE8E0B882E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A54793A3-676D-4C29-AC56-32BE8E0B882E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A54793A3-676D-4C29-AC56-32BE8E0B882E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A54793A3-676D-4C29-AC56-32BE8E0B882E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {30BF7974-D6C1-444C-B01C-C93143A836AC}
+	EndGlobalSection
+EndGlobal
