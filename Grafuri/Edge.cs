@@ -9,8 +9,8 @@ namespace Grafuri
 {
     public class Edge
     {
-        Vertex begin;
-        Vertex end;
+        public Vertex begin;
+        public Vertex end;
 
         public Edge(string data, List<Vertex> vertices)
         {
