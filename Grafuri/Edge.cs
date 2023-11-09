@@ -11,31 +11,27 @@ namespace Grafuri
     {
         public Vertex begin;
         public Vertex end;
-
+        Color fillColor;
         public Edge(string data, List<Vertex> vertices)
         {
             string n1 = data.Split(' ')[0];
-            string n2 = data.Split(' ')[1];
-
-            foreach(Vertex vertex in vertices)
+            foreach (Vertex vertex in vertices)
             {
-                if(n1 == vertex.name)
-                {
+                if (n1 == vertex.name)
                     begin = vertex;
-                }
-                
-                if(n2 == vertex.name)
-                {
-                    end = vertex;
-                }
             }
-
-           
+            string n2 = data.Split(' ')[1];
+            foreach (Vertex vertex in vertices)
+            {
+                if (n2 == vertex.name)
+                    end = vertex;
+            }
         }
-
-        public void Draw(Graphics graphics)
+        public void Draw(Graphics handler, string data)
         {
-            graphics.DrawLine(Pens.Red, begin.x, begin.y, end.x, end.y);
+            string[] local = data.Split(' ');
+            Pen pen = new Pen(new SolidBrush(Color.Gold), 5);
+            handler.DrawLine(pen, begin.X, begin.Y, end.X, end.Y);
         }
     }
 }

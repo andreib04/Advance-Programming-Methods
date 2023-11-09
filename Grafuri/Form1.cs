@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace Grafuri
 {
@@ -14,6 +15,7 @@ namespace Grafuri
     {
         Bitmap bmp;
         Graphics grf;
+        Graph graph;
 
         public Form1()
         {
@@ -24,16 +26,18 @@ namespace Grafuri
         {
             bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             grf = Graphics.FromImage(bmp);
-            Graph graph = new Graph();
+            graph = new Graph();
             graph.Load(@"..\..\graf.txt");
             graph.GreedyColoring();
             graph.Draw(grf);
-
             pictureBox1.Image = bmp;
-
-            List<string> test = graph.debug();
-
-            foreach(string s in test)
+            //List<string> test = graph.Debug();
+            //foreach (string s in test)
+            //{
+            //    listBox1.Items.Add(s);
+            //}
+            List<string> test = graph.HamiltonianGraph();
+            foreach (string s in test)
             {
                 listBox1.Items.Add(s);
             }
