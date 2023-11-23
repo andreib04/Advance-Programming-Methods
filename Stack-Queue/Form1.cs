@@ -34,17 +34,44 @@ namespace Stack_Queue
             graph.Dispersion(new PointF(pictureBox1.Width/2, pictureBox1.Height/2), 150);
             List<Vertex> t = graph.BFS(graph.vertices[0]);
 
+            StringBuilder sb = new StringBuilder();
+            foreach (Vertex v in t)
+            {
+                sb.Append(v.idx);
+                sb.Append(" ");
+            }
+            listBox1.Items.Add(sb.ToString());
+
+            t = graph.DFS(graph.vertices[0]);
+            sb.Clear();
             foreach(Vertex v in t)
             {
-                listBox1.Items.Add(v.idx);
+                sb.Append(v.idx);
+                sb.Append(" ");
             }
+            listBox1.Items.Add(sb.ToString());
 
-            List<Vertex> t1 = graph.DFS(graph.vertices[0]);
 
-            foreach(Vertex v in t1)
+            t = graph.DFS_Rec(graph.vertices[0]);
+            sb.Clear();
+            foreach (Vertex v in t)
             {
-                listBox2.Items.Add(v.idx);
+                sb.Append(v.idx);
+                sb.Append(" ");
             }
+            listBox1.Items.Add(sb.ToString());
+
+            int[] dist = graph.Dijkstra(graph.vertices[0]);
+            sb.Clear();
+            foreach(int distance in dist)
+            {
+                if (distance != int.MaxValue)
+                    sb.Append(distance);
+                else
+                    return sb.;
+            }
+            
+
 
             graph.Draw(grp);
             pictureBox1.Image = bmp;

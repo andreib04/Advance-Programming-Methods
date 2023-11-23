@@ -16,6 +16,7 @@ namespace Stack_Queue
         public void Draw(Graphics handler)
         {
             handler.DrawEllipse(Pens.Black, location.X - 5, location.Y - 5, 11, 11);
+            handler.DrawString(idx.ToString(), new Font("Arial", 20), Brushes.Red, location);
         }
     }
 }
