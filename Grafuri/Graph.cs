@@ -19,6 +19,14 @@ namespace Grafuri
             vertices = new List<Vertex>();
             edges = new List<Edge>();
         }
+
+        public Graph(List<Vertex> _vertices)
+        {
+            this.vertices = _vertices;
+            edges = new List<Edge>();
+            Complete();
+        }
+
         public void Load(string data)
         {
             TextReader reader = new StreamReader(data);
@@ -63,10 +71,48 @@ namespace Grafuri
         }
         public void Draw(Graphics handler)
         {
-            foreach (Edge edge in edges)
-                edge.Draw(handler, @"..\..\CoordonateGraf.txt");
+            //foreach (Edge edge in edges)
+            //    edge.Draw(handler, @"..\..\CoordonateGraf.txt");
             foreach (Vertex vertex in vertices)
                 vertex.Draw(handler);
+            foreach (Edge edge in edges)
+                edge.Draw(handler);
+        }
+
+        public void Complete()
+        {
+            for(int i = 0; i < vertices.Count - 1; i++)
+            {
+                for(int j = i + 1; j < vertices.Count; j++)
+                {
+                    edges.Add(new Edge(vertices[i], vertices[j]));
+                }
+            }
+        }
+
+        bool isCycleUtils(int start, bool[] visited, int parent)
+        {
+            visited[start] = true;
+            //afisam indicele
+            for(int i = 0; i < ma.GetLength(0); i++)
+            {
+                if (ma[start, i] == true && !visited[i])
+                    isCycleUtils(i, visited, start);
+                else
+                {
+                    if (parent != start)
+                        return true;
+                }
+            }
+            return false;
+        }
+
+        bool isCycle(int start)
+        {
+            bool[] visited = new bool[ma.GetLength(0)];
+
+            return isCycleUtils(start, visited, -1);
+
         }
 
         public void GreedyColoring()

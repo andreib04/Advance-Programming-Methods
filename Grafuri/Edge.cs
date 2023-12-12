@@ -10,6 +10,7 @@ namespace Grafuri
     public class Edge
     {
         public Vertex begin;
+        float cost;
         public Vertex end;
         Color fillColor;
         public Edge(string data, List<Vertex> vertices)
@@ -26,12 +27,25 @@ namespace Grafuri
                 if (n2 == vertex.name)
                     end = vertex;
             }
+        }//TODO: adaugat cost
+
+        public Edge(Vertex begin, Vertex end)
+        {
+            this.begin = begin;
+            this.end = end;
+            this.cost = MyMath.distance(new PointF(begin.X, begin.Y), new PointF(end.X, end.Y));
         }
+
         public void Draw(Graphics handler, string data)
         {
             string[] local = data.Split(' ');
             Pen pen = new Pen(new SolidBrush(Color.Gold), 5);
             handler.DrawLine(pen, begin.X, begin.Y, end.X, end.Y);
+        }
+
+        public void Draw(Graphics handler)
+        {
+            handler.DrawLine(Pens.Red, begin.X, begin.Y, end.X, end.Y);
         }
     }
 }

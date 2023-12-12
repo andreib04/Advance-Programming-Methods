@@ -17,6 +17,9 @@ namespace Grafuri
         Graphics grf;
         Graph graph;
 
+        MyGraphics graphics;
+        Algorithm algorithm;
+
         public Form1()
         {
             InitializeComponent();
@@ -24,23 +27,28 @@ namespace Grafuri
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            grf = Graphics.FromImage(bmp);
-            graph = new Graph();
-            graph.Load(@"..\..\graf.txt");
-            graph.GreedyColoring();
-            graph.Draw(grf);
-            pictureBox1.Image = bmp;
+            //bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            //grf = Graphics.FromImage(bmp);
+            //graph = new Graph();
+            //graph.Load(@"..\..\graf.txt");
+            //graph.GreedyColoring();
+            //graph.Draw(grf);
+            //pictureBox1.Image = bmp;
             //List<string> test = graph.Debug();
             //foreach (string s in test)
             //{
             //    listBox1.Items.Add(s);
             //}
-            List<string> test = graph.HamiltonianGraph();
-            foreach (string s in test)
-            {
-                listBox1.Items.Add(s);
-            }
+            //List<string> test = graph.HamiltonianGraph();
+            //foreach (string s in test)
+            //{
+            //    listBox1.Items.Add(s);
+            //}
+            graphics = new MyGraphics(pictureBox1);
+            algorithm = new Algorithm(20);
+            Graph demo = algorithm.Action();
+            demo.Draw(graphics.grp);
+            graphics.Refresh();
         }
     }
 }
